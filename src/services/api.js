@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const { REACT_APP_API_BACK_URL } = process.env;
+
 export const apiBack = axios.create({
-  baseURL: "https://movieinfo-backend.herokuapp.com/",
+  baseURL: REACT_APP_API_BACK_URL,
 });
 
 const { REACT_APP_API_KEY } = process.env;

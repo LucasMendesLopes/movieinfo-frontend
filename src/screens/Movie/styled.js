@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: 80px;
   background: linear-gradient(0deg, #111419, rgba(9, 13, 18, 0.3) 200%),
     url(${(props) => props.url}) no-repeat center;
@@ -10,6 +10,7 @@ export const Container = styled.div`
 
   @media (max-width: 900px) {
     padding: 30px;
+    height: 100%;
   }
 `;
 

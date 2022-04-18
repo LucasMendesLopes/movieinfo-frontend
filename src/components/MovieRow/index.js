@@ -23,17 +23,19 @@ export function MovieRow({ title, genre }) {
       try {
         setIsLoading(true);
 
-        await getTrendingList()
-          .then((resp) => {
-            setMoviesList(resp.results);
-          })
-          .catch((erro) => console.log("erro :>> ", erro));
-
-        await getGenreList(genre)
-          .then((resp) => {
-            setMoviesList(resp.results);
-          })
-          .catch((erro) => console.log("erro :>> ", erro));
+        if (!genre) {
+          await getTrendingList()
+            .then((resp) => {
+              setMoviesList(resp.results);
+            })
+            .catch((erro) => console.log("erro :>> ", erro));
+        } else {
+          await getGenreList(genre)
+            .then((resp) => {
+              setMoviesList(resp.results);
+            })
+            .catch((erro) => console.log("erro :>> ", erro));
+        }
       } catch (erro) {
         console.log("erro :>> ", erro);
       } finally {
@@ -53,13 +55,9 @@ export function MovieRow({ title, genre }) {
 
         <ul {...events} ref={ref}>
           {moviesList?.map((movie, index) => {
-            if (index < 15)
+            if (movie.poster_path && movie.overview)
               return (
-                <li
-                  key={index}
-                  url={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  onClick={() => navigate(`/movie/${movie.id}`)}
-                >
+                <li key={index} onClick={() => navigate(`/movie/${movie.id}`)}>
                   <img
                     className="poster"
                     src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

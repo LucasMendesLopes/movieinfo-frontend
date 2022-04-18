@@ -5,6 +5,7 @@ import { getTrendingList, getMovieTrailer } from "../../services/api";
 import { LoopCircleLoading } from "react-loadingg";
 import { MovieRow } from "../../components/MovieRow";
 import { ModalVideo } from "../../components/ModalVideo";
+import { Navbar } from "../../components/Navbar";
 import React, { useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
@@ -18,6 +19,8 @@ export default function Home() {
   const [randomMovie, setRandomMovie] = useState();
   const [videoId, setVideoId] = useState();
 
+  const [navbarColor, setNavbarColor] = useState(false);
+
   useEffect(() => {
     function loadRandomMovie() {
       try {
@@ -26,12 +29,16 @@ export default function Home() {
         getTrendingList()
           .then((resp) => {
             let randomMovieIndex = Math.floor(
-              Math.random() * resp.results.length - 1
+              Math.random() * resp.results.length
             );
 
-            if (resp.results[randomMovieIndex] === undefined) {
-              setRandomMovie(resp.results[randomMovieIndex + 1]);
+            if (
+              resp.results[randomMovieIndex].backdrop_path &&
+              resp.results[randomMovieIndex].overview
+            ) {
+              setRandomMovie(resp.results[randomMovieIndex]);
             } else {
+              randomMovieIndex++;
               setRandomMovie(resp.results[randomMovieIndex]);
             }
           })
@@ -61,11 +68,19 @@ export default function Home() {
       });
   }
 
-  if (isLoading || randomMovie === undefined) {
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 10) {
+      setNavbarColor(true);
+    } else setNavbarColor(false);
+  });
+
+  if (isLoading || !randomMovie) {
     return <LoopCircleLoading color={"#7010d2"} size={"large"} speed={1} />;
   } else
     return (
       <>
+        <Navbar navbarColor={navbarColor} />
+
         <s.Banner
           url={`https://image.tmdb.org/t/p/original${randomMovie.backdrop_path}`}
         >

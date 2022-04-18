@@ -3,13 +3,13 @@ import styled from "styled-components";
 export const MovieRowContainer = styled.div`
   h2 {
     font-size: 1.4rem;
-    margin: 0 40px 20px;
+    margin: 0 60px 20px;
   }
 
   ul {
     gap: 20px;
     list-style: none;
-    padding: 0 40px 40px;
+    padding: 0 60px 40px;
     display: flex;
     overflow-y: hidden;
     transform: translateZ(0);
@@ -20,8 +20,6 @@ export const MovieRowContainer = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      background: url(${(props) => props.url}) no-repeat;
-      background-size: cover;
       -webkit-tap-highlight-color: transparent;
 
       img.poster {

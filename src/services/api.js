@@ -1,14 +1,11 @@
 import axios from "axios";
 
 const { REACT_APP_API_BACK_URL } = process.env;
-
+const { REACT_APP_API_KEY } = process.env;
 export const apiBack = axios.create({
   baseURL: REACT_APP_API_BACK_URL,
 });
-
-const { REACT_APP_API_KEY } = process.env;
 const API_BASE = "https://api.themoviedb.org/3";
-
 const basicFetch = async (endpoint) => {
   return await axios.get(`${API_BASE}${endpoint}`);
 };
@@ -26,14 +23,6 @@ export const getMovieTrailer = (movieId) => {
 export const getTrendingList = () => {
   return new Promise((resolve, reject) => {
     basicFetch(`/discover/movie?language=pt-BR&api_key=${REACT_APP_API_KEY}`)
-      .then((resp) => resolve(resp.data))
-      .catch((error) => reject(error));
-  });
-};
-
-export const getTopratedList = () => {
-  return new Promise((resolve, reject) => {
-    basicFetch(`/movie/top_rated?&language=pt-BR&api_key=${REACT_APP_API_KEY}`)
       .then((resp) => resolve(resp.data))
       .catch((error) => reject(error));
   });

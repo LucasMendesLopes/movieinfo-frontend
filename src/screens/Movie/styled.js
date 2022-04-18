@@ -2,14 +2,18 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
-  padding: 80px;
-  background: linear-gradient(0deg, #111419, rgba(9, 13, 18, 0.3) 200%),
+  min-height: 100vh;
+  padding: 80px 60px;
+  background: linear-gradient(0deg, #010101, rgba(9, 13, 18, 0.5) 280%),
     url(${(props) => props.url}) no-repeat center;
   background-size: cover;
 
-  @media (max-width: 900px) {
-    padding: 30px;
+  @media (max-width: 500px) {
+    padding: 60px 30px;
+    /* height: 100%; */
+  }
+
+  @media (max-width: 1024px) {
     height: 100%;
   }
 `;
@@ -17,7 +21,7 @@ export const Container = styled.div`
 export const VoltarContainer = styled.div`
   width: 140px;
   cursor: pointer;
-  margin-bottom: 40px;
+  margin: 25px 0 40px;
   display: flex;
   gap: 20px;
   align-items: center;
@@ -72,7 +76,7 @@ export const MovieInfosContainer = styled.div`
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   button.button-overview {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as s from "./styled";
 import { useNavigate } from "react-router-dom";
-import { HomeIcon, UserIcon } from "../../assets";
+import { CloseIcon, HomeIcon, UserIcon } from "../../assets";
 
 export function Navbar({ navbarColor }) {
   const [openMenuLateral, setOpenMenuLateral] = useState(false);
@@ -14,9 +14,9 @@ export function Navbar({ navbarColor }) {
           <svg
             onClick={() => setOpenMenuLateral(true)}
             viewBox="0 0 100 80"
-            width="30"
-            height="30"
-            fill="#7010d2"
+            width="35"
+            height="35"
+            fill="#999"
           >
             <rect width="100" height="10"></rect>
             <rect y="30" width="100" height="10"></rect>
@@ -43,9 +43,10 @@ export function Navbar({ navbarColor }) {
         openMenuLateral={openMenuLateral}
         onMouseLeave={() => setOpenMenuLateral(false)}
       >
-        <p id="close" onClick={() => setOpenMenuLateral(false)}>
+        <img src={CloseIcon} alt="" onClick={() => setOpenMenuLateral(false)} />
+        {/* <p id="close" onClick={() => setOpenMenuLateral(false)}>
           X
-        </p>
+        </p> */}
 
         <s.LinksMenuLateralContainer>
           <p>Lançamentos</p>

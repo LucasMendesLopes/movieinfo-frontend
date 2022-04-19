@@ -7,7 +7,11 @@ export const ModalVideoContainer = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
+  z-index: 3;
+
+  div.ytp-cued-thumbnail-overlay {
+    cursor: auto !important;
+  }
 `;
 
 export const ModalVideoBody = styled.div`

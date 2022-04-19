@@ -3,35 +3,13 @@ import styled from "styled-components";
 export const Navbar = styled.div`
   position: fixed;
   width: 100%;
-  height: 70px;
+  height: 80px;
   display: flex;
-  z-index: 10;
-  transition: background-color 0.3s ease-out, opacity 0.5s ease-out;
+  z-index: 2;
+  transition: background-color 0.5s ease-out, opacity 0.5s ease-out;
   ${({ navbarColor }) =>
-    navbarColor
-      ? `background: rgba(30, 30, 30, 1);`
-      : `background: transparent;`};
-  ${({ openMenuLateral }) =>
-    openMenuLateral ? `display: none` : `opacity: 1;`};
-
-  p {
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  svg {
-    cursor: pointer;
-  }
-
-  img {
-    cursor: pointer;
-    width: 45px;
-    height: 45px;
-  }
-
-  /* @media (max-width: 450px) {
-    background: #010101;
-  } */
+    navbarColor ? `background: #000;` : `background: transparent;`};
+  ${({ openMenuLateral }) => (openMenuLateral ? `opacity: 0` : `opacity: 1;`)};
 `;
 
 export const LinksNavbarContainer = styled.div`
@@ -41,36 +19,68 @@ export const LinksNavbarContainer = styled.div`
   align-items: center;
   padding: 0px 30px;
   justify-content: space-between;
+
+  svg {
+    cursor: pointer;
+  }
+
+  img {
+    cursor: pointer;
+    width: 45px;
+  }
+
+  svg:hover {
+    fill: #c3c3c3;
+  }
 `;
 
 export const MenuLateral = styled.div`
   position: fixed;
+  width: 50%;
+  padding: 138px 50px;
   display: flex;
   flex-direction: column;
-  padding: 30px;
   justify-content: space-around;
-  /* gap: 30px; */
-  opacity: 0;
-  transition: all 0.5s;
-  z-index: 2;
+  gap: 80px;
+  transition: ${({ openMenuLateral }) =>
+    openMenuLateral ? `transform 0.5s ease-out;` : `transform 0.5s ease-in;`};
   ${({ openMenuLateral }) =>
-    openMenuLateral ? `opacity: 1;  width: 50%;` : `width: 0;`}
+    openMenuLateral
+      ? `transform: translate(0); opacity: 1;`
+      : `transform: translate(-400%);`}
   height: 100%;
-  background: rgba(30, 30, 30, 1);
+  background: #000;
   text-align: center;
+  z-index: 2;
 
-  p#close {
+  img {
+    cursor: pointer;
     margin: 0 auto;
+    width: 42px;
   }
 
   p {
-    font-size: 1.5rem;
+    font-size: 2.7rem;
     font-weight: bold;
+    color: #999;
     cursor: pointer;
   }
 
+  p:hover {
+    color: #c3c3c3;
+  }
+
+  @media (max-width: 1440px) {
+    padding: 50px;
+
+    p {
+      font-size: 2rem;
+      color: #c3c3c3;
+    }
+  }
+
   @media (max-width: 450px) {
-    padding: 20px;
+    width: 80%;
 
     p {
       font-size: 1.3rem;
@@ -78,9 +88,40 @@ export const MenuLateral = styled.div`
   }
 `;
 
+export const IconContainer = styled.div`
+  /* max-width: 30%; */
+  width: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+
+  @media (max-width: 1440px) {
+    p {
+      font-size: 1.4rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    p {
+      color: #c3c3c3;
+    }
+  }
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+
+    p {
+      font-size: 1.6rem;
+    }
+  }
+`;
+
 export const LinksMenuLateralContainer = styled.div`
   width: 100%;
+  height: 90%;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  justify-content: space-between;
+  /* gap: 50px; */
 `;

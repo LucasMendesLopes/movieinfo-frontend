@@ -6,7 +6,8 @@
 }
 
 body, input{
-  font-family: Helvetica;
+  font-family: sans-serif;
+  font-weight: 200;
   color: #ffffff;
 }
 

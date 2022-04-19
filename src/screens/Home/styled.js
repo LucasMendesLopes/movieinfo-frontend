@@ -6,7 +6,7 @@ export const Banner = styled.div`
   display: flex;
   align-items: center;
   padding-left: 60px;
-  background: linear-gradient(0deg, #010101, rgba(9, 13, 18, 0.5) 280%),
+  background: linear-gradient(0deg, #010101, rgba(9, 13, 18, 0.5) 200%),
     url(${(props) => props.url}) no-repeat;
   background-size: cover;
   background-position: 50% 10%;
@@ -27,8 +27,13 @@ export const MovieInfos = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
+  h1 {
+    font-size: 2.4rem;
+  }
+
   p {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    color: #999999;
   }
 
   @media screen and (max-width: 850px) {

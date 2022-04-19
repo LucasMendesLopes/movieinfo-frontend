@@ -5,8 +5,7 @@ import { LoopCircleLoading } from "react-loadingg";
 import { ModalVideo } from "../../components/ModalVideo";
 import { Navbar } from "../../components/Navbar";
 import toast, { Toaster } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { VoltarIcon } from "../../assets";
 

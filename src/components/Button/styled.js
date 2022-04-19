@@ -8,9 +8,9 @@ export const Button = styled.button`
   background-color: ${(color) => color.color};
   border: none;
   border-radius: 50px;
-  font-size: 1.05rem;
+  font-size: 1rem;
   letter-spacing: 0.08vw;
-  font-weight: bold;
+  font-weight: 600;
   color: #ffffff;
   transition: all ease 0.5s;
 

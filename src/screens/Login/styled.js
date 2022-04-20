@@ -42,3 +42,7 @@ export const LoginContainer = styled.div`
     }
   }
 `;
+
+export const InputContainer = styled.div``;
+
+export const ButtonContainer = styled.div``;

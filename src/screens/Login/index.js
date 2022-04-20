@@ -36,39 +36,43 @@ export default function Login() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <h1>LOGO</h1>
 
-        <p>E-mail:</p>
-        <input
-          type="email"
-          placeholder="Digite seu e-mail"
-          {...register("email", {
-            required: "preencha este campo",
-          })}
-        />
-        <ErrorMessage
-          errors={errors}
-          name="email"
-          render={({ message }) => <p id="error">{message}</p>}
-        />
+        <s.InputContainer>
+          <p>E-mail:</p>
+          <input
+            type="email"
+            placeholder="Digite seu e-mail"
+            {...register("email", {
+              required: "preencha este campo",
+            })}
+          />
+          <ErrorMessage
+            errors={errors}
+            name="email"
+            render={({ message }) => <p id="error">{message}</p>}
+          />
 
-        <p>Senha:</p>
-        <input
-          type="password"
-          placeholder="Digite sua senha"
-          {...register("senha", {
-            required: "preencha este campo",
-          })}
-        />
-        <ErrorMessage
-          errors={errors}
-          name="senha"
-          render={({ message }) => <p id="error">{message}</p>}
-        />
+          <p>Senha:</p>
+          <input
+            type="password"
+            placeholder="Digite sua senha"
+            {...register("senha", {
+              required: "preencha este campo",
+            })}
+          />
+          <ErrorMessage
+            errors={errors}
+            name="senha"
+            render={({ message }) => <p id="error">{message}</p>}
+          />
+        </s.InputContainer>
 
-        <Button text="Entrar" />
+        <s.ButtonContainer>
+          <Button text="Entrar" />
 
-        <p>
-          Não possui cadastro? <a href="register">Cadastre-se aqui</a>
-        </p>
+          <p>
+            Não possui cadastro? <a href="register">Cadastre-se aqui</a>
+          </p>
+        </s.ButtonContainer>
       </form>
 
       <Toaster position="bottom-right" reverseOrder={false} />

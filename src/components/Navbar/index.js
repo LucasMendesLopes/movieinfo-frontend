@@ -41,21 +41,33 @@ export function Navbar({ navbarColor }) {
 
       <s.MenuLateral
         openMenuLateral={openMenuLateral}
-        onMouseLeave={() => setOpenMenuLateral(false)}
+        // onMouseLeave={() => setOpenMenuLateral(false)}
       >
-        <img src={CloseIcon} alt="" onClick={() => setOpenMenuLateral(false)} />
-        {/* <p id="close" onClick={() => setOpenMenuLateral(false)}>
-          X
-        </p> */}
+        <img
+          src={CloseIcon}
+          alt="fechar menu lateral"
+          onClick={() => setOpenMenuLateral(false)}
+        />
 
-        <s.LinksMenuLateralContainer>
-          <p>Lançamentos</p>
-          <p>Ação</p>
-          <p>Comédia</p>
-          <p>Drama</p>
-          <p>Terror</p>
-          <p>Família</p>
-        </s.LinksMenuLateralContainer>
+        <ul>
+          <li>Ação</li>
+          <li>Aventura</li>
+          <li>Animação</li>
+          <li>Comédia</li>
+          <li>Crime</li>
+          <li>Documentário</li>
+          <li>Drama</li>
+          <li>Família</li>
+          <li>Fantasia</li>
+          <li>Horror</li>
+          <li>Lançamentos</li>
+          <li>Música</li>
+          <li>Mistério</li>
+          <li>Romance</li>
+          <li>Ficção científica</li>
+          <li>Thriller</li>
+          <li>Guerra</li>
+        </ul>
       </s.MenuLateral>
     </>
   );

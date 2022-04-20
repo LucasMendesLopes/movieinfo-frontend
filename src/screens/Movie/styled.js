@@ -4,13 +4,12 @@ export const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   padding: 80px 60px;
-  background: linear-gradient(0deg, #010101, rgba(9, 13, 18, 0.5) 200%),
+  background: linear-gradient(0deg, #010101, rgba(9, 13, 18, 0.5) 130%),
     url(${(props) => props.url}) no-repeat center;
   background-size: cover;
 
   @media (max-width: 500px) {
     padding: 60px 30px;
-    /* height: 100%; */
   }
 
   @media (max-width: 1024px) {
@@ -72,7 +71,7 @@ export const MovieInfosContainer = styled.div`
   line-height: 1.3;
 
   h1 {
-    font-size: 2.6rem;
+    font-size: 2.2rem;
   }
 
   p {

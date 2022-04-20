@@ -6,7 +6,7 @@ export const Banner = styled.div`
   display: flex;
   align-items: center;
   padding-left: 60px;
-  background: linear-gradient(0deg, #010101, rgba(9, 13, 18, 0.5) 200%),
+  background: linear-gradient(0deg, #010101, rgba(9, 13, 18, 0.5) 130%),
     url(${(props) => props.url}) no-repeat;
   background-size: cover;
   background-position: 50% 10%;
@@ -28,7 +28,7 @@ export const MovieInfos = styled.div`
   justify-content: space-between;
 
   h1 {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
   }
 
   p {

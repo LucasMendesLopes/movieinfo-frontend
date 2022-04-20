@@ -36,92 +36,90 @@ export const LinksNavbarContainer = styled.div`
 
 export const MenuLateral = styled.div`
   position: fixed;
-  width: 50%;
-  padding: 138px 50px;
+  width: 30%;
+  height: 100%;
+  padding: 70px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  gap: 80px;
+  justify-content: space-between;
+  gap: 50px;
+
   transition: ${({ openMenuLateral }) =>
     openMenuLateral ? `transform 0.5s ease-out;` : `transform 0.5s ease-in;`};
   ${({ openMenuLateral }) =>
     openMenuLateral
       ? `transform: translate(0); opacity: 1;`
       : `transform: translate(-400%);`}
-  height: 100%;
+
   background: #000;
   text-align: center;
   z-index: 2;
 
   img {
     cursor: pointer;
-    margin: 0 auto;
     width: 42px;
   }
 
-  p {
+  ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style: none;
+    gap: 35px;
+    text-align: left;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #7010d2 #430980;
+
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #7010d2;
+      border-radius: 20px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #430980;
+      border-radius: 20px;
+    }
+  }
+
+  li {
     font-size: 2.7rem;
     font-weight: bold;
     color: #999;
     cursor: pointer;
   }
 
-  p:hover {
+  li:hover {
     color: #c3c3c3;
   }
 
   @media (max-width: 1440px) {
     padding: 50px;
 
-    p {
-      font-size: 2rem;
+    li {
+      font-size: 2.2rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    padding: 40px;
+
+    li {
+      font-size: 1.6rem;
       color: #c3c3c3;
     }
   }
 
   @media (max-width: 450px) {
-    width: 80%;
+    width: 65%;
 
-    p {
-      font-size: 1.3rem;
+    li {
+      font-size: 1.2rem;
     }
   }
-`;
-
-export const IconContainer = styled.div`
-  /* max-width: 30%; */
-  width: 20vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-
-  @media (max-width: 1440px) {
-    p {
-      font-size: 1.4rem;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    p {
-      color: #c3c3c3;
-    }
-  }
-
-  @media (max-width: 500px) {
-    flex-direction: column;
-
-    p {
-      font-size: 1.6rem;
-    }
-  }
-`;
-
-export const LinksMenuLateralContainer = styled.div`
-  width: 100%;
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  /* gap: 50px; */
 `;

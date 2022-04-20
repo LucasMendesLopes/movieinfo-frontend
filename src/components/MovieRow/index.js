@@ -64,7 +64,11 @@ export function MovieRow({ title, genre }) {
                     alt={movie.title}
                   />
 
-                  <img className="icon" src={IconPlay} alt="" />
+                  <img
+                    className="icon"
+                    src={IconPlay}
+                    alt="ver mais sobre o filme"
+                  />
                 </li>
               );
           })}
